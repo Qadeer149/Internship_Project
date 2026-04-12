@@ -183,31 +183,31 @@ function App() {
 
   return (
     // 🎨 Main container: dark gradient theme, relative for the glow effect
-    <div className="min-h-screen relative flex flex-col items-center p-8 text-white bg-gradient-to-br from-gray-950 via-blue-950 to-black font-sans overflow-hidden z-0">
+    <div className="min-h-screen relative flex flex-col items-center p-4 sm:p-8 text-white bg-gradient-to-br from-gray-950 via-blue-950 to-black font-sans overflow-hidden z-0">
       
       {/* ✨ Central White Glow/Shadow (subtle radial blur) */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] bg-white/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[700px] md:h-[700px] bg-white/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
       {/* 🔹 Header */}
-      <div className="flex flex-col items-center mb-10 mt-4 z-10 w-full relative">
-        <div className="absolute top-0 left-4 flex items-center space-x-3 mt-2 hover:scale-105 transition-transform duration-300">
-          <div className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white font-black text-sm shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-white/20">
+      <div className="flex flex-col items-center mb-8 sm:mb-10 w-full relative pt-12 sm:pt-4">
+        <div className="absolute top-0 left-0 sm:left-4 flex items-center space-x-3 mt-2 hover:scale-105 transition-transform duration-300">
+          <div className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white font-black text-xs sm:text-sm shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-white/20">
             MQ
           </div>
-          <span className="text-gray-300 text-sm tracking-widest uppercase font-bold drop-shadow-md">
+          <span className="text-gray-300 text-xs sm:text-sm tracking-widest uppercase font-bold drop-shadow-md">
             Mohammed Qadeer
           </span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-white text-center drop-shadow-lg mt-8 md:mt-0">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-white text-center drop-shadow-lg mt-4 sm:mt-0 leading-tight">
           📊 AI Data Analyst Dashboard
         </h1>
       </div>
 
       {/* 🔹 Layout Grid for the Two Main Pillars: Upload & AI Analysis */}
-      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 z-10">
+      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 z-10">
         
         {/* === UPLOAD SECTION (Left side) === */}
-        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-2xl flex flex-col h-full">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col h-full">
           <div className="flex-grow">
             <h2 className="text-2xl font-semibold text-blue-300 mb-2 border-b border-white/10 pb-3">
               📂 1. Data Source
@@ -240,7 +240,7 @@ function App() {
         </div>
 
         {/* === AI CHAT UI SECTION (Right side) === */}
-        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-2xl flex flex-col h-full relative h-[450px]">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col relative min-h-[400px] md:h-[450px]">
           <h2 className="text-2xl font-semibold text-blue-300 mb-2 border-b border-white/10 pb-3 flex-shrink-0">
             🤖 2. Ask AI
           </h2>
