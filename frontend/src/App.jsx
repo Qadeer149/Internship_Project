@@ -189,9 +189,14 @@ function App() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] bg-white/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
       {/* 🔹 Header */}
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-10 mt-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-white text-center drop-shadow-lg">
-        📊 AI Data Analyst Dashboard
-      </h1>
+      <div className="flex flex-col items-center mb-10 mt-4 z-10 w-full relative">
+        <div className="absolute top-0 right-4 text-gray-500 text-sm tracking-widest uppercase font-semibold mt-2">
+          By Mohammed Qadeer
+        </div>
+        <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-white text-center drop-shadow-lg">
+          📊 AI Data Analyst Dashboard
+        </h1>
+      </div>
 
       {/* 🔹 Layout Grid for the Two Main Pillars: Upload & AI Analysis */}
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 z-10">
