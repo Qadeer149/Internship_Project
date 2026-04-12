@@ -190,10 +190,15 @@ function App() {
 
       {/* 🔹 Header */}
       <div className="flex flex-col items-center mb-10 mt-4 z-10 w-full relative">
-        <div className="absolute top-0 right-4 text-gray-500 text-sm tracking-widest uppercase font-semibold mt-2">
-          By Mohammed Qadeer
+        <div className="absolute top-0 right-4 flex items-center space-x-3 mt-2 hover:scale-105 transition-transform duration-300">
+          <div className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white font-black text-sm shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-white/20">
+            MQ
+          </div>
+          <span className="text-gray-300 text-sm tracking-widest uppercase font-bold drop-shadow-md">
+            Mohammed Qadeer
+          </span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-white text-center drop-shadow-lg">
+        <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-white text-center drop-shadow-lg mt-8 md:mt-0">
           📊 AI Data Analyst Dashboard
         </h1>
       </div>
