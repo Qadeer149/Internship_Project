@@ -8,11 +8,16 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors(
-  {
-    origin:"https://ai-data-dashboard.onrender.com"
-  }
-));
+// ✨ Updated CORS Configuration
+app.use(cors({
+  origin: [
+    "https://ai-dataanalysis.onrender.com", // Your Live Render Frontend
+    "http://localhost:5173",                // Local Vite Frontend
+    "http://localhost:3000"                 // Local React fallback
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 // MongoDB Connection
