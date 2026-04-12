@@ -116,11 +116,13 @@ function App() {
     const recordCount = data.length;
     let numericCols = [];
     
-    // Find numeric columns
+    // Find numeric columns, intelligently ignoring ID columns
     const firstRow = data[0];
     Object.keys(firstRow).forEach(key => {
       const val = String(firstRow[key]).replace(/,/g, '').replace(/[^0-9.-]/g, '').trim();
-      if (val !== "" && !isNaN(Number(val))) {
+      // Ignore columns that are likely IDs or indexes to prevent meaningless sums
+      const isIdColumn = key.toLowerCase().includes('id') || key.toLowerCase() === 'index';
+      if (val !== "" && !isNaN(Number(val)) && !isIdColumn) {
         numericCols.push(key);
       }
     });
