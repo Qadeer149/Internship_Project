@@ -190,7 +190,7 @@ function App() {
 
       {/* 🔹 Header */}
       <div className="flex flex-col items-center mb-10 mt-4 z-10 w-full relative">
-        <div className="absolute top-0 right-4 flex items-center space-x-3 mt-2 hover:scale-105 transition-transform duration-300">
+        <div className="absolute top-0 left-4 flex items-center space-x-3 mt-2 hover:scale-105 transition-transform duration-300">
           <div className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white font-black text-sm shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-white/20">
             MQ
           </div>
