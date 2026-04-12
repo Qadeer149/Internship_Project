@@ -26,7 +26,7 @@ function App() {
 
     try {
       // 🌐 Automatically switch between localhost for testing and your Render URL for production!
-      const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const API_BASE = "https://ai-data-backend.onrender.com" || "http://localhost:5000";
       
       const res = await axios.post(`${API_BASE}/api/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -60,7 +60,7 @@ function App() {
     try {
       setLoading(true);
       
-      const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const API_BASE = "https://ai-data-backend.onrender.com" || "http://localhost:5000";
       
       // Wait for Gemini to think about it...
       const res = await axios.post(`${API_BASE}/api/ask-ai`, {
