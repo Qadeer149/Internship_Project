@@ -1,6 +1,8 @@
 import { useState, useMemo } from "react";
 import axios from "axios";
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
+import Header from "./components/Header";
+import DataPreviewTable from "./components/DataPreviewTable";
 
 const COLORS = ['#60a5fa', '#34d399', '#a78bfa', '#f87171', '#fbbf24', '#fbbf24', '#818cf8'];
 
@@ -191,19 +193,7 @@ function App() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[700px] md:h-[700px] bg-white/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
       {/* 🔹 Header */}
-      <div className="flex flex-col items-center mb-8 sm:mb-10 w-full relative pt-12 sm:pt-4">
-        <div className="absolute top-0 left-0 sm:left-4 flex items-center space-x-3 mt-2 hover:scale-105 transition-transform duration-300">
-          <div className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white font-black text-xs sm:text-sm shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-white/20">
-            MQ
-          </div>
-          <span className="text-gray-300 text-xs sm:text-sm tracking-widest uppercase font-bold drop-shadow-md">
-            Mohammed Qadeer
-          </span>
-        </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-white text-center drop-shadow-lg mt-4 sm:mt-0 leading-tight">
-          📊 AI Data Analyst Dashboard
-        </h1>
-      </div>
+      <Header />
 
       {/* 🔹 Layout Grid for the Two Main Pillars: Upload & AI Analysis */}
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 z-10">
@@ -428,43 +418,7 @@ function App() {
           </div>
 
           {/* Table Section (Takes up 1/3 of the space on large screens) */}
-          <div className="xl:col-span-1 w-full bg-black/50 backdrop-blur-2xl border border-white/5 p-8 rounded-3xl shadow-2xl flex flex-col h-[500px]">
-            
-            <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
-              <h3 className="text-xl font-bold text-gray-200">
-                📋 Data Preview
-              </h3>
-              <span className="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded-md">Scroll Right →</span>
-            </div>
-            
-            {/* Scrollable Table Container */}
-            <div className="overflow-x-auto overflow-y-auto flex-grow scrollbar-thin scrollbar-thumb-blue-600/50 scrollbar-track-transparent pb-3">
-              <table className="min-w-full text-sm text-left text-gray-300">
-                <thead className="sticky top-0 bg-gray-900/95 backdrop-blur-sm shadow-sm z-10 text-blue-200 uppercase text-[10px] tracking-widest leading-loose">
-                  <tr>
-                    {/* Maps through EVERYTHING dynamically, no more chopping data off */}
-                    {Object.keys(data[0]).map((key) => ( 
-                      <th key={key} className="px-6 py-4 font-semibold border-b border-white/10 whitespace-nowrap">
-                        {key}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-
-                <tbody className="divide-y divide-white/5">
-                  {data.slice(0, 50).map((row, i) => (
-                    <tr key={i} className="hover:bg-white/5 transition-colors duration-150">
-                      {Object.values(row).map((val, j) => (
-                        <td key={j} className="px-6 py-5 whitespace-nowrap text-gray-400">
-                          {val}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <DataPreviewTable data={data} />
 
         </div>
       )}
