@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import axios from "axios";
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 import Header from "./components/Header";
@@ -10,7 +10,9 @@ function App() {
   const [file, setFile] = useState(null);
   const [data, setData] = useState([]);
   
-  // ✨ State to track AI-derived variables (Axes, Text Insights, Chart Type, and Chat History)
+  const chartRef = useRef(null);
+  
+  // State to track AI-derived variables (Axes, Text Insights, Chart Type, and Chat History)
   const [chartAxes, setChartAxes] = useState(null);
   const [chartType, setChartType] = useState("bar"); // Default chart type
   
@@ -42,6 +44,11 @@ function App() {
       setChatHistory([
         { sender: 'ai', text: 'Data uploaded successfully! Ask me anything about it in plain English.' }
       ]);
+      
+      // Instantly scroll to the newly rendered graph section
+      setTimeout(() => {
+        chartRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
     } catch (err) {
       console.error("Upload error details:", err);
       alert("Upload failed. Please ensure the backend server is running on port 5000.");
@@ -306,7 +313,7 @@ function App() {
 
       {/* === DATA TABLE & CHARTS (Bottom Section) === */}
       {data.length > 0 && (
-        <div className="w-full max-w-7xl mt-10 grid grid-cols-1 xl:grid-cols-3 gap-8 z-10">
+        <div ref={chartRef} className="w-full max-w-7xl mt-10 grid grid-cols-1 xl:grid-cols-3 gap-8 z-10">
           
           {/* KPI Cards Header Row */}
           <div className="xl:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
